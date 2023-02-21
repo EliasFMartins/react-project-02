@@ -1,3 +1,4 @@
+import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
@@ -6,13 +7,10 @@ export function Post() {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            className={styles.avatar}
-            src="https://github.com/EliasFMartins.png"
-          />
+         <Avatar  src="https://github.com/annie-n3.png"/>
           <div className={styles.authorInfo}>
-            <strong>Elias F. Martins</strong>
-            <span>Web Developer</span>
+            <strong>Annie</strong>
+            <span>Backend Developer</span>
           </div>
         </div>
         <time title="21 de Fereveiro às 13:01" dateTime="2023-02-21 13:01:22">
@@ -24,7 +22,7 @@ export function Post() {
 
         <p>
           Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          com nlw Return, eventoda Rocketseat. O nome do projeto é DoctorCare
+          com nlw Return, evento da Rocketseat. O nome do projeto é DoctorCare
         </p>
         <p>
           {" "}
