@@ -1,7 +1,17 @@
 import { ThumbsUp, Trash } from "phosphor-react";
+import { useState } from "react";
 import styles from "./Comment.module.css";
 
-export function Comment() {
+export function Comment({content, onDeleteComments}) {
+  const [likeCount, setLikeCount]=useState(0);
+  function handleDeleteComment() {
+    onDeleteComments(content);
+  }
+  function handleLikeComment() {
+    setLikeCount((state) => {
+      return state+1
+    });
+  }
   return (
     <div className={styles.comment}>
       <img src="https://github.com/EliasFMartins.png" />
@@ -17,16 +27,16 @@ export function Comment() {
                 Cerca de 1h atrás
               </time>
             </div>
-              <button title="Déletar comentário">
+              <button onClick={handleDeleteComment} title="Déletar comentário">
                 <Trash size={24} />
               </button>
           </header>
-          <p>Muito bom Annie, parabéns!!</p>
+          <p>{content}</p>
         </div>
         <footer>
-          <button>
+          <button onClick={handleLikeComment}>
             <ThumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
